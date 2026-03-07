@@ -1,4 +1,10 @@
-streamlit
-openai-whisper
-torch
 numpy
+yt-dlp
+pytube
+scipy
+streamlit>=1.32.0
+faster-whisper>=1.0.0
+yt-dlp>=2024.3.10
+pydub>=0.25.1
+sounddevice>=0.4.6
+soundfile>=0.12.1
