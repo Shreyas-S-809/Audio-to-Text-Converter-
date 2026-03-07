@@ -82,6 +82,39 @@ AI-Transcription-Tool
 
 ---
 
+## System Architecture
+
+The application follows a simple local processing pipeline where all audio processing and transcription happens on the user's machine.
+
+```
+User Interface (Streamlit)
+        │
+        ▼
+Input Source
+├── Audio File Upload
+├── YouTube Video URL
+└── Microphone Recording
+        │
+        ▼
+Audio Processing
+├── FFmpeg Conversion
+└── Audio Normalization
+        │
+        ▼
+Transcription Engine
+(Faster-Whisper Model)
+        │
+        ▼
+Output Generation
+├── Plain Text Transcript (.txt)
+└── Subtitle File (.srt)
+        │
+        ▼
+Downloadable Results
+```
+
+---
+
 # ⚙️ Installation
 
 ## 1. Clone the Repository
@@ -146,37 +179,6 @@ ffmpeg -version
 If FFmpeg prints version information, it is correctly installed.
 
 ---
-## System Architecture
-
-The application follows a simple local processing pipeline where all audio processing and transcription happens on the user's machine.
-
-```
-User Interface (Streamlit)
-        │
-        ▼
-Input Source
-├── Audio File Upload
-├── YouTube Video URL
-└── Microphone Recording
-        │
-        ▼
-Audio Processing
-├── FFmpeg Conversion
-└── Audio Normalization
-        │
-        ▼
-Transcription Engine
-(Faster-Whisper Model)
-        │
-        ▼
-Output Generation
-├── Plain Text Transcript (.txt)
-└── Subtitle File (.srt)
-        │
-        ▼
-Downloadable Results
-```
-
 All processing happens locally without sending audio data to external servers.
 ---
 
@@ -218,22 +220,6 @@ Trade-offs:
 | medium / large | slow      | highest  | high         |
 
 Choose the model that fits your system capabilities.
-
----
-
-## Performance Notes
-
-The application is optimized for CPU inference using **int8 quantization** in Faster-Whisper.
-
-Typical performance on a standard CPU system:
-
-| Model | Speed     | Accuracy |
-| ----- | --------- | -------- |
-| tiny  | very fast | lower    |
-| base  | fast      | balanced |
-| small | slower    | better   |
-
-The default configuration uses the **base model**, which provides a good balance between speed and accuracy for most users.
 
 ---
 
