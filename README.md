@@ -120,8 +120,8 @@ Downloadable Results
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ai-transcription-tool.git
-cd ai-transcription-tool
+git clone https://github.com/Shreyas-S-809/Audio-to-Text-Converter.git
+cd Audio-to-Text--Converter
 ```
 
 ---
